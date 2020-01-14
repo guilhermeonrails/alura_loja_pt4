@@ -8,6 +8,9 @@
                     <div class="footer-social-info text-right">
                         <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'pedir_receita' %}">Pedir receita</a>
+                        {% endif %}
                     </div>
                     <!-- Footer Logo -->
                     <div class="footer-logo">

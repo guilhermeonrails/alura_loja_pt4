@@ -12,7 +12,7 @@
 {% include 'partials/_menu.html' %}
 
 <!-- ##### Contact Form Area Start ##### -->
-<div class="contact-area section-padding-0-80">
+<div class="contact-area section-padding-0">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -21,6 +21,7 @@
                 </div>
             </div>
         </div>
+        {% include 'partials/_alertas.html'%}
     </div>
 </div>
 
@@ -39,10 +40,12 @@
                             <img src="{{ receita.foto_receita.url }}" alt="">
                         {% endif %}
                             <div class="receipe-content">
-                            <a href="{% url 'receita' receita.id %}">
-                                <h5>{{ receita.nome_receita }}</h5>
-                            </a>
-                        </div>
+                                <a href="{% url 'receita' receita.id %}">
+                                    <h5>{{ receita.nome_receita }}</h5>
+                                    <a href="{% url 'edita_receita' receita.id %}" type="button" class="btn btn-info">Editar</a>
+                                    <a href="{% url 'deleta_receita' receita.id %}" type="button" class="btn btn-danger">Deletar</a>
+                                </a>
+                            </div>
                     </div>
                 </div>
                 {% endfor %}

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Receita
+from .models_pedir_receita import PedirReceita
 
 class ListandoReceitas(admin.ModelAdmin):
     list_display = ('id', 'nome_receita', 'categoria', 'tempo_preparo', 'publicada')
@@ -9,4 +10,12 @@ class ListandoReceitas(admin.ModelAdmin):
     list_editable = ('publicada',)
     list_per_page = 5
 
+class PedidosDeReceitas(admin.ModelAdmin):
+    list_display = ('id', 'nome_receita','categoria', 'pessoa','date_receita', 'pedido_atendido')
+    list_display_links = ('id', 'nome_receita')
+    list_editable = ('pedido_atendido',)
+    list_filter = ('pedido_atendido',)
+    list_per_page = 25
+
 admin.site.register(Receita, ListandoReceitas)
+admin.site.register(PedirReceita, PedidosDeReceitas)

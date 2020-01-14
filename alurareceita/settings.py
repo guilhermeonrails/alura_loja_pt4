@@ -139,3 +139,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success',
 }
+
+LOGIN_REDIRECT_URL = 'dashboard'
